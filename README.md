@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This repo is official **[PyTorch](https://pytorch.org)** implementation of **Camera Distance-aware Top-down Approach for 3D Multi-person Pose Estimation from a Single RGB Image (ICCV 2019)**. It contains **RootNet** part.
+This repo is official **[PyTorch](https://pytorch.org)** implementation of **[Camera Distance-aware Top-down Approach for 3D Multi-person Pose Estimation from a Single RGB Image (ICCV 2019)](https://arxiv.org/abs/1907.11346)**. It contains **RootNet** part.
 
-**Code and arXiv will be ready soon!**
+**Code will be ready soon!**
 
