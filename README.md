@@ -66,7 +66,7 @@ ${POSE_ROOT}
 |       |   `-- MuCo-3DHP.json
 `-- |-- MuPoTS
 |   `-- |-- bbox
-|       |   |-- bbox_human36m_output.json
+|       |   |-- bbox_mupots_output.json
 |       |-- data
 |       |   |-- MultiPersonTestSet
 |       |   `-- MuPoTS-3D.json
