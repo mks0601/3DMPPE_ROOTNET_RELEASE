@@ -136,11 +136,11 @@ For the evaluation, you can run `test.py` or there are evaluation codes in `Huma
 |-----------|-------|
 | RootNet |  31.0 | 
 
-* Pre-trained RootNet (Human3.6M protocol 1+ MPII) [[model](https://cv.snu.ac.kr/research/3DMPPE/human3.6m/p1/snapshot_19.pth.tar
+* Pre-trained RootNet (Human3.6M protocol 1+ MPII) [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p1/snapshot_19.pth.tar
 )]
-* Pre-trained RootNet (Human3.6M protocol 2+ MPII) [[model](https://cv.snu.ac.kr/research/3DMPPE/human3.6m/p2/snapshot_7.pth.tar
+* Pre-trained RootNet (Human3.6M protocol 2+ MPII) [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p2/snapshot_7.pth.tar
 )]
-* Pre-trained RootNet (MuCO-3DHP + MSCOCO) [[model](https://cv.snu.ac.kr/research/3DMPPE/muco/snapshot_18.pth.tar
+* Pre-trained RootNet (MuCO-3DHP + MSCOCO) [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/muco/snapshot_18.pth.tar
 )]
 
 ## Reference
