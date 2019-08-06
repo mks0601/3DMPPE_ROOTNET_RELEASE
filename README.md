@@ -124,7 +124,7 @@ python test.py --gpu 0-1 --test_epoch 20
 to test the network on the GPU 0,1 with 20th epoch trained model. `--gpu 0,1` can be used instead of `--gpu 0-1`.
 
 ## Results
-Here I report the performance of the RootNet. Also, I provide bounding box estimations and pre-trained models of the RootNet.
+Here I report the performance of the RootNet. Also, I provide bounding box estimations and trained models of the RootNet.
  
 For the evaluation, you can run `test.py` or there are evaluation codes in `Human36M` and `MuPoTS`.
 
@@ -133,6 +133,12 @@ For the evaluation, you can run `test.py` or there are evaluation codes in `Huma
 | Method    | MRPE | MRPE_x | MRPE_y | MRPE_z | 
 |-----------|-------|-------|--------|--------|
 | RootNet |  120.0 | 23.3 |  23.0 |  108.1 |
+* Bounding box [[H36M_protocol1](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/Human36M/Protocol1/bbox_human36m_output.json)][[H36M_protocol2](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/Human36M/Protocol2/bbox_human36m_output.json)]
+* RootNet model trained on H36M protocol 1 + MPII [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p1/snapshot_19.pth.tar
+)]
+* RootNet model trained on H36M protocol 2 + MPII [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p2/snapshot_7.pth.tar
+)]
+
 
 #### MuPoTS-3D dataset
 
@@ -140,11 +146,8 @@ For the evaluation, you can run `test.py` or there are evaluation codes in `Huma
 |-----------|-------|
 | RootNet |  31.0 | 
 
-* Human3.6M protocol 1 [[bbox](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/Human36M/Protocol1/bbox_human36m_output.json)][[rootnet_model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p1/snapshot_19.pth.tar
-)]
-* Human3.6M protocol 2 [[bbox](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/Human36M/Protocol2/bbox_human36m_output.json)][[rootnet_model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/human3.6m/p2/snapshot_7.pth.tar
-)]
-* MuCO-3DHP [[bbox](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/MuPoTS-3D/bbox_mupots_output.json)][[rootnet_model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/muco/snapshot_18.pth.tar
+* Bounding box [[MuPoTS-3D](https://cv.snu.ac.kr/research/3DMPPE/result/bbox/MuPoTS-3D/bbox_mupots_output.json)]
+* RootNet model trained on MuCo-3DHP + MSCOCO [[model](https://cv.snu.ac.kr/research/3DMPPE/model/RootNet/muco/snapshot_18.pth.tar
 )]
 
 ## Reference
