@@ -9,7 +9,7 @@
 </p>
 
 <p align="middle">
-<img src="https://cv.snu.ac.kr/research/3DMPPE/figs/video1.gif" width="400" height="200"> <img src="https://cv.snu.ac.kr/research/3DMPPE/figs/video2.gif" width="400" height="200">
+<img src="https://cv.snu.ac.kr/research/3DMPPE/figs/video1.gif" width="400" height="300"> <img src="https://cv.snu.ac.kr/research/3DMPPE/figs/video2.gif" width="400" height="300">
 </p>
 
 ## Introduction
