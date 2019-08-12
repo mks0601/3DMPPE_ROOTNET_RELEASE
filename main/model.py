@@ -65,11 +65,11 @@ class RootNet(nn.Module):
         coord_y = coord_y.sum(dim=2) - 1
 
         # z
-        depth = torch.mean(x.view(x.size(0), x.size(1), x.size(2)*x.size(3)), dim=2) # global average pooling
-        depth = torch.unsqueeze(depth,2); depth = torch.unsqueeze(depth,3);
-        depth = self.depth_layer(depth)
-        depth = depth.view(-1,1)
-        depth = depth * k_value.view(-1,1)
+        img_feat = torch.mean(x.view(x.size(0), x.size(1), x.size(2)*x.size(3)), dim=2) # global average pooling
+        img_feat = torch.unsqueeze(img_feat,2); img_feat = torch.unsqueeze(img_feat,3);
+        gamma = self.depth_layer(img_feat)
+        gamma = gamma.view(-1,1)
+        depth = gamma * k_value.view(-1,1)
 
         coord = torch.cat((coord_x, coord_y, depth), dim=1)
         return coord
