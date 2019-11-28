@@ -45,7 +45,7 @@ class Config:
 
     ## testing config
     test_batch_size = 32
-    use_gt_bbox = False
+    use_gt_bbox = True
 
     ## others
     num_thread = 8
