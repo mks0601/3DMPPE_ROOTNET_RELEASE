@@ -102,11 +102,11 @@ class Human36M:
             # camera parameter
             cam_idx = img['cam_idx']
             cam_param = cameras[str(subject)][str(cam_idx)]
-            R,t,f,c = np.array(cam_param['R']), np.array(cam_param['t']), np.array(cam_param['f']), np.array(cam_param['c'])
+            R,t,f,c = np.array(cam_param['R'], dtype=np.float32), np.array(cam_param['t'], dtype=np.float32), np.array(cam_param['f'], dtype=np.float32), np.array(cam_param['c'], dtype=np.float32)
                 
             # project world coordinate to cam, image coordinate space
             action_idx = img['action_idx']; subaction_idx = img['subaction_idx']; frame_idx = img['frame_idx'];
-            root_world = np.array(joints[str(subject)][str(action_idx)][str(subaction_idx)][str(frame_idx)])[self.root_idx]
+            root_world = np.array(joints[str(subject)][str(action_idx)][str(subaction_idx)][str(frame_idx)], dtype=np.float32)[self.root_idx]
             root_cam = world2cam(root_world, R, t.reshape(3))
             root_img = cam2pixel(root_cam[None,:], f, c)[0]
             joint_vis = np.ones((self.joint_num,1))
