@@ -34,7 +34,7 @@ class MPII:
             if ann['num_keypoints'] == 0:
                 continue
             
-            bbox = process_bbox(bbox, width, height)
+            bbox = process_bbox(ann['bbox'], width, height)
             if bbox is None: continue
             area = bbox[2]*bbox[3]
 
