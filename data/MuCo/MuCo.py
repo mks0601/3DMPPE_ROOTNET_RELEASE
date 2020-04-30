@@ -13,6 +13,8 @@ class MuCo:
         self.train_annot_path = osp.join('..', 'data', 'MuCo', 'data', 'MuCo-3DHP.json')
         self.joint_num = 21
         self.joints_name = ('Head_top', 'Thorax', 'R_Shoulder', 'R_Elbow', 'R_Wrist', 'L_Shoulder', 'L_Elbow', 'L_Wrist', 'R_Hip', 'R_Knee', 'R_Ankle', 'L_Hip', 'L_Knee', 'L_Ankle', 'Pelvis', 'Spine', 'Head', 'R_Hand', 'L_Hand', 'R_Toe', 'L_Toe')
+        self.min_depth = 1500
+        self.max_depth = 7500
         self.joints_have_depth = True
         self.root_idx = self.joints_name.index('Pelvis')
         self.data = self.load_data()
