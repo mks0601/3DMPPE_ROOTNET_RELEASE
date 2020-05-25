@@ -72,7 +72,8 @@ class MSCOCO:
                 'area': area,
                 'root_img': root_img, # [org_img_x, org_img_y, 0]
                 'root_vis': root_vis,
-                'f': np.array([1500, 1500]) # dummy value
+                'f': np.array([1500, 1500]), # dummy value
+                'c': np.array([width/2, height/2]) # dummy value
             })
 
         return data
