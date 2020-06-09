@@ -7,14 +7,14 @@ class Config:
     
     ## dataset
     # training set
-    # 3D: Human36M, MuCo
+    # 3D: Human36M, MuCo, PW3D
     # 2D: MSCOCO, MPII 
     # Note that list must consists of one 3D dataset (first element of the list) + several 2D datasets
     trainset = ['Human36M', 'MPII'] 
 
     # testing set
-    # Human36M, MuPoTS, MSCOCO
-    testset = 'Human36M'
+    # Human36M, MuPoTS, MSCOCO, PW3D
+    testset = 'PW3D'
 
     ## directory
     cur_dir = osp.dirname(os.path.abspath(__file__))
@@ -32,9 +32,9 @@ class Config:
     ## input, output
     input_shape = (256, 256)
     output_shape = (input_shape[0]//4, input_shape[1]//4)
-    bbox_real = (2000, 2000)
     pixel_mean = (0.485, 0.456, 0.406)
     pixel_std = (0.229, 0.224, 0.225)
+    bbox_real = (2000, 2000) # Human36M, MuCo, MuPoTS: (2000, 2000), PW3D: (2, 2)
 
     ## training config
     lr_dec_epoch = [17]
