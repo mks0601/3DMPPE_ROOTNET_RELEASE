@@ -33,7 +33,7 @@ This repo is official **[PyTorch](https://pytorch.org)** implementation of **[Ca
 **What this repo provides:**
 * [PyTorch](https://pytorch.org) implementation of [Camera Distance-aware Top-down Approach for 3D Multi-person Pose Estimation from a Single RGB Image (ICCV 2019)](https://arxiv.org/abs/1907.11346).
 * Flexible and simple code.
-* Compatibility for most of the publicly available 2D and 3D, single and multi-person pose estimation datasets including **[Human3.6M]([http://vision.imar.ro/human3.6m/description.php](http://vision.imar.ro/human3.6m/description.php)), [MPII](http://human-pose.mpi-inf.mpg.de/), [MS COCO 2017](http://cocodataset.org/#home), [MuCo-3DHP](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/) and [MuPoTS-3D](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/)**.
+* Compatibility for most of the publicly available 2D and 3D, single and multi-person pose estimation datasets including **[Human3.6M]([http://vision.imar.ro/human3.6m/description.php](http://vision.imar.ro/human3.6m/description.php)), [MPII](http://human-pose.mpi-inf.mpg.de/), [MS COCO 2017](http://cocodataset.org/#home), [MuCo-3DHP](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/), [MuPoTS-3D](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/), and [3DPW](https://virtualhumans.mpi-inf.mpg.de/3DPW/)**.
 * Human pose estimation visualization code.
 
 ## Dependencies
@@ -106,6 +106,7 @@ ${POSE_ROOT}
 * Download 3DPW parsed data [[images](https://virtualhumans.mpi-inf.mpg.de/3DPW/)](parsed annotations will be provided soon.)
 * All annotation files follow [MS COCO format](http://cocodataset.org/#format-data).
 * If you want to add your own dataset, you have to convert it to [MS COCO format](http://cocodataset.org/#format-data).
+
 ### Output
 You need to follow the directory structure of the `output` folder as below.
 ```
