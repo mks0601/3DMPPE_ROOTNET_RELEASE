@@ -92,11 +92,18 @@ ${POSE_ROOT}
 |       |-- data
 |       |   |-- MultiPersonTestSet
 |       |   `-- MuPoTS-3D.json
+`-- |-- PW3D
+|   `-- |-- data
+|       |   |-- 3DPW_train.json
+|       |   |-- 3DPW_validation.json
+|       |   `-- 3DPW_test.json
+|       |-- imageFiles
 ```
 * Download Human3.6M parsed data [[data](https://drive.google.com/drive/folders/1kgVH-GugrLoc9XyvP6nRoaFpw3TmM5xK?usp=sharing)]
 * Download MPII parsed data [[images](http://human-pose.mpi-inf.mpg.de/)][[annotations](https://drive.google.com/drive/folders/1MmQ2FRP0coxHGk0Ntj0JOGv9OxSNuCfK?usp=sharing)]
 * Download MuCo parsed and composited data [[data](https://drive.google.com/drive/folders/1yL2ey3aWHJnh8f_nhWP--IyC9krAPsQN?usp=sharing)]
-* Download MuPoTS parsed parsed data [[images](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/)][[annotations](https://drive.google.com/drive/folders/1WmfQ8UEj6nuamMfAdkxmrNcsQTrTfKK_?usp=sharing)]
+* Download MuPoTS parsed data [[images](http://gvv.mpi-inf.mpg.de/projects/SingleShotMultiPerson/)][[annotations](https://drive.google.com/drive/folders/1WmfQ8UEj6nuamMfAdkxmrNcsQTrTfKK_?usp=sharing)]
+* Download 3DPW parsed data [[images](https://virtualhumans.mpi-inf.mpg.de/3DPW/)](parsed annotations will be provided soon.)
 * All annotation files follow [MS COCO format](http://cocodataset.org/#format-data).
 * If you want to add your own dataset, you have to convert it to [MS COCO format](http://cocodataset.org/#format-data).
 ### Output
@@ -118,6 +125,7 @@ ${POSE_ROOT}
 ## Running 3DMPPE_ROOTNET
 ### Start
 * In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.
+* **YOU MUST SET `bbox_real` according to unit of each dataset. For example, Human3.6M uses milimeter, therefore `bbox_real = (2000, 2000)`. 3DPW uses meter, therefore `bbox_real = (2, 2)`.**
 
 ### Train
 In the `main` folder, run
@@ -142,11 +150,13 @@ python test.py --gpu 0-1 --test_epoch 20
 to test the network on the GPU 0,1 with 20th epoch trained model. `--gpu 0,1` can be used instead of `--gpu 0-1`.
 
 ## Results
-Here I report the performance of the RootNet. Also, you can download pre-trained model of RootNet in [here](https://drive.google.com/drive/folders/1V7fuKtzNovLte2jSF2fw0gyBiEZQFQ_k?usp=sharing) and bounding boxs (from DetectNet) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://drive.google.com/open?id=1oPugnYuxPnVSKtxpGQuzJKimhq7PtX_M).
+* Pre-trained model of RootNet in [here](https://drive.google.com/drive/folders/1V7fuKtzNovLte2jSF2fw0gyBiEZQFQ_k?usp=sharing).
+* Bounding boxs (from DetectNet) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://drive.google.com/open?id=1oPugnYuxPnVSKtxpGQuzJKimhq7PtX_M).
+* Bounding boxs (GT) and root joint coordinates (from RootNet) of 3DPW dataset (only test set) in [here](https://drive.google.com/drive/folders/1kUpw2m4Xcq1NFjSzDqGgKTW19Rd5jHx4?usp=sharing). The result is obtained from RootNet trained on MuCo+MSCOCO (*without 3DPW training set*).
  
 For the evaluation, you can run `test.py` or there are evaluation codes in `Human36M` and `MuPoTS`.
 
-#### Human3.6M dataset using protocol 2
+#### Human3.6M dataset using protocol 2 (milimeter)
 
 | Method    | MRPE | MRPE_x | MRPE_y | MRPE_z | 
 |-----------|-------|-------|--------|--------|
@@ -154,12 +164,17 @@ For the evaluation, you can run `test.py` or there are evaluation codes in `Huma
 
 
 
-#### MuPoTS-3D dataset
+#### MuPoTS-3D dataset (milimeter)
 
 | Method    | AP_25 | 
 |-----------|-------|
 | RootNet |  31.0 | 
 
+#### 3DPW dataset (test set. meter)
+
+| Method    | MRPE | MRPE_x | MRPE_y | MRPE_z | 
+|-----------|-------|-------|--------|--------|
+| RootNet |  0.386 | 0.045 |  0.094 |  0.353 |
 
 ### MSCOCO dataset
 
