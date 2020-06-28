@@ -40,44 +40,13 @@ def main():
         trainer.tot_timer.tic()
         trainer.read_timer.tic()
 
-        for itr in range(trainer.itr_per_epoch):
-            
-            input_img_list, k_value_list, root_img_list, root_vis_list, joints_have_depth_list = [], [], [], [], []
-            for i in range(len(cfg.trainset)):
-                try:
-                    input_img, k_value, root_img, root_vis, joints_have_depth = next(trainer.iterator[i])
-                except StopIteration:
-                    trainer.iterator[i] = iter(trainer.batch_generator[i])
-                    input_img, k_value, root_img, root_vis, joints_have_depth = next(trainer.iterator[i])
-
-                input_img_list.append(input_img)
-                k_value_list.append(k_value)
-                root_img_list.append(root_img)
-                root_vis_list.append(root_vis)
-                joints_have_depth_list.append(joints_have_depth)
-            
-            # aggregate items from different datasets into one single batch
-            input_img = torch.cat(input_img_list,dim=0)
-            k_value = torch.cat(k_value_list,dim=0)
-            root_img = torch.cat(root_img_list,dim=0)
-            root_vis = torch.cat(root_vis_list,dim=0)
-            joints_have_depth = torch.cat(joints_have_depth_list,dim=0)
-            
-            # shuffle items from different datasets
-            rand_idx = []
-            for i in range(len(cfg.trainset)):
-                rand_idx.append(torch.arange(i,input_img.shape[0],len(cfg.trainset)))
-            rand_idx = torch.cat(rand_idx,dim=0)
-            rand_idx = rand_idx[torch.randperm(input_img.shape[0])]
-            input_img = input_img[rand_idx]; k_value = k_value[rand_idx]; root_img = root_img[rand_idx]; root_vis = root_vis[rand_idx]; joints_have_depth = joints_have_depth[rand_idx];
-            target = {'coord': root_img, 'vis': root_vis, 'have_depth': joints_have_depth}
-
+        for itr, (input_img, k_value, root_img, root_vis, joints_have_depth) in enumerate(trainer.batch_generator):
             trainer.read_timer.toc()
             trainer.gpu_timer.tic()
 
-            trainer.optimizer.zero_grad()
-            
             # forward
+            trainer.optimizer.zero_grad()
+            target = {'coord': root_img, 'vis': root_vis, 'have_depth': joints_have_depth}
             loss_coord = trainer.model(input_img, k_value, target)
             loss_coord = loss_coord.mean();
 
