@@ -95,7 +95,7 @@ class Trainer(Base):
                                                                                                         )))
         trainset_loader = MultipleDatasets(trainset_loader) 
         self.itr_per_epoch = math.ceil(len(trainset_loader) / cfg.num_gpus / cfg.batch_size)
-        self.batch_generator = DataLoader(dataset=trainset_loader, batch_size=cfg.num_gpus*cfg.batch_size//len(cfg.trainset), shuffle=True, num_workers=cfg.num_thread, pin_memory=True)
+        self.batch_generator = DataLoader(dataset=trainset_loader, batch_size=cfg.num_gpus*cfg.batch_size, shuffle=True, num_workers=cfg.num_thread, pin_memory=True)
 
     def _make_model(self):
         # prepare network
