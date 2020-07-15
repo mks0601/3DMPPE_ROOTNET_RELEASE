@@ -152,8 +152,8 @@ to test the network on the GPU 0,1 with 20th epoch trained model. `--gpu 0,1` ca
 
 ## Results
 * Pre-trained model of RootNet in [here](https://drive.google.com/drive/folders/1V7fuKtzNovLte2jSF2fw0gyBiEZQFQ_k?usp=sharing).
-* Bounding boxs (from DetectNet) of Human3.6M and MuPoTS-3D datasets in [here](https://drive.google.com/drive/folders/1oBluPpX1YV5YLOU7qytbvdUkn0tp_Yyk?usp=sharing).
-* Bounding boxs (from DetectNet and **extended**) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://drive.google.com/open?id=1oPugnYuxPnVSKtxpGQuzJKimhq7PtX_M). **You should not use the bounding boxs of this file to test RootNet because the boxs are extneded. Please use the right above one (bounding boxs from DetectNet)**.
+* Bounding boxs (from DetectNet and **not extended**) of Human3.6M and MuPoTS-3D datasets in [here](https://drive.google.com/drive/folders/1oBluPpX1YV5YLOU7qytbvdUkn0tp_Yyk?usp=sharing). **You can use this to test RootNet.**
+* Bounding boxs (from DetectNet and **extended**) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://drive.google.com/open?id=1oPugnYuxPnVSKtxpGQuzJKimhq7PtX_M). **You should not use the bounding boxs of this file to test RootNet because the boxs are extended. Please use the right above one (bounding boxs from DetectNet without bbox extension)**.
 * Bounding boxs (GT) and root joint coordinates (from RootNet) of 3DPW dataset (only test set) in [here](https://drive.google.com/drive/folders/1kUpw2m4Xcq1NFjSzDqGgKTW19Rd5jHx4?usp=sharing). The result is obtained from RootNet trained on MuCo+MSCOCO (*without 3DPW training set*).
  
 For the evaluation, you can run `test.py` or there are evaluation codes in `Human36M` and `MuPoTS`.
