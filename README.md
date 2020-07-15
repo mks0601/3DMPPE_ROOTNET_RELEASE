@@ -165,7 +165,7 @@ For the evaluation, you can run `test.py` or there are evaluation codes in `Huma
 
 
 
-#### MuPoTS-3D dataset (milimeter)
+#### MuPoTS-3D dataset (percentage)
 
 | Method    | AP_25 | 
 |-----------|-------|
