@@ -15,7 +15,7 @@ sys.path.insert(0, osp.join('..', 'data'))
 sys.path.insert(0, osp.join('..', 'common'))
 from config import cfg
 from model import get_pose_net
-from utils.pose_utils import process_bbox
+from utils.pose_utils import process_bbox, pixel2cam
 from dataset import generate_patch_image
 
 def parse_args():
@@ -86,7 +86,7 @@ vis_img = np.transpose(vis_img,(1,2,0)).copy()
 vis_root = np.zeros((2))
 vis_root[0] = root_3d[0] / cfg.output_shape[1] * cfg.input_shape[1]
 vis_root[1] = root_3d[1] / cfg.output_shape[0] * cfg.input_shape[0]
-cv2.circle(vis_img, (vis_root[0], vis_root[1]), radius=5, color=(0,255,0), thickness=-1, lineType=cv2.LINE_AA)
+cv2.circle(vis_img, (int(vis_root[0]), int(vis_root[1])), radius=5, color=(0,255,0), thickness=-1, lineType=cv2.LINE_AA)
 cv2.imwrite('output_root_2d.jpg', vis_img)
 
 print('Depth from camera: ' + str(root_3d[2]) + ' mm') 
@@ -98,5 +98,6 @@ princpt = (None, None) # princical point of x-axis, y-aixs. please provide this.
 root_3d[0] = root_3d[0] / cfg.output_shape[1] * cfg.input_shape[1]
 root_3d[1] = root_3d[1] / cfg.output_shape[0] * cfg.input_shape[0]
 root_3d_xy1 = np.concatenate((root_3d[:2], np.ones_like(root_3d[:1])))
-root_3d[:2] = np.dot(np.linalg.inv(img2bb_trans), root_3d_xy1)
-root_3d = pixel2cam(root_3d, focal, princpt)
+img2bb_trans_001 = np.concatenate((img2bb_trans, np.array([0,0,1]).reshape(1,3)))
+root_3d[:2] = np.dot(np.linalg.inv(img2bb_trans_001), root_3d_xy1)[:2]
+root_3d = pixel2cam(root_3d[None,:], focal, princpt)
