@@ -94,6 +94,8 @@ print('Depth from camera: ' + str(root_3d[2]) + ' mm')
 # camera back-projection
 focal = (None, None) # focal length of x-axis, y-axis. please provide this. if do not know, set normalized one (1500, 1500).
 princpt = (None, None) # princical point of x-axis, y-aixs. please provide this. if do not know, set (original_width/2, original_height/2).
+assert None not in focal, 'pleaset set focal length'
+assert None not in princpt, 'please set princpt'
 # inverse affine transform (restore the crop and resize)
 root_3d[0] = root_3d[0] / cfg.output_shape[1] * cfg.input_shape[1]
 root_3d[1] = root_3d[1] / cfg.output_shape[0] * cfg.input_shape[0]
@@ -101,3 +103,5 @@ root_3d_xy1 = np.concatenate((root_3d[:2], np.ones_like(root_3d[:1])))
 img2bb_trans_001 = np.concatenate((img2bb_trans, np.array([0,0,1]).reshape(1,3)))
 root_3d[:2] = np.dot(np.linalg.inv(img2bb_trans_001), root_3d_xy1)[:2]
 root_3d = pixel2cam(root_3d[None,:], focal, princpt)
+
+print('Root joint position in 3D space (camera-centered, milimeter): ', root_3d.tolist())
