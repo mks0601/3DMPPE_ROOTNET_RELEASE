@@ -56,6 +56,7 @@ model.eval()
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=cfg.pixel_mean, std=cfg.pixel_std)])
 img_path = 'input.jpg'
 img = cv2.imread(img_path)
+original_height, original_width = img.shape[:2]
 
 # prepare bbox and camera intrincis
 bbox = [164, 93, 222, 252] # xmin, ymin, width, height
@@ -91,8 +92,8 @@ cv2.imwrite('output_root_2d.jpg', vis_img)
 print('Depth from camera: ' + str(root_3d[2]) + ' mm') 
 
 # camera back-projection
-focal = (None, None) # focal length of x-axis, y-axis. please provide this
-princpt = (None, None) # princical point of x-axis, y-aixs. please provide this
+focal = (None, None) # focal length of x-axis, y-axis. please provide this. if do not know, set normalized one (1500, 1500).
+princpt = (None, None) # princical point of x-axis, y-aixs. please provide this. if do not know, set (original_width/2, original_height/2).
 # inverse affine transform (restore the crop and resize)
 root_3d[0] = root_3d[0] / cfg.output_shape[1] * cfg.input_shape[1]
 root_3d[1] = root_3d[1] / cfg.output_shape[0] * cfg.input_shape[0]
