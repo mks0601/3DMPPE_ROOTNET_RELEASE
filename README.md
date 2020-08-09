@@ -85,13 +85,13 @@ ${POSE_ROOT}
 |   |   |   |-- augmented_set
 |   |   |   |-- unaugmented_set
 |   |   |   |-- MuCo-3DHP.json
-|-- |-- MuPoTS
+|   |-- MuPoTS
 |   |   |-- bbox
 |   |   |   |-- bbox_mupots_output.json
 |   |   |-- data
 |   |   |   |-- MultiPersonTestSet
 |   |   |   |-- MuPoTS-3D.json
-|-- |-- PW3D
+|   |-- PW3D
 |   |   |-- data
 |   |   |   |-- 3DPW_train.json
 |   |   |   |-- 3DPW_validation.json
