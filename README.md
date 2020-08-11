@@ -38,9 +38,9 @@ Python 3.6.5 version with Anaconda 3 is used for development.
 
 ## Quick demo
 You can try quick demo at `demo` folder. 
-* Download the pre-trained RootNet in [here](https://drive.google.com/drive/folders/1V7fuKtzNovLte2jSF2fw0gyBiEZQFQ_k?usp=sharing).
+* Download the pre-trained RootNet in [here](https://drive.google.com/drive/folders/1nQfOIgc7_AG5xPAO-vtG_L0WxdOelxet?usp=sharing).
 * Prepare `input.jpg` and pre-trained snapshot at `demo` folder.
-* Run `python demo.py --gpu 0 --test_epoch 24` if you want to run on gpu 0 and use `snapshot_24.pth.tar`.
+* Run `python demo.py --gpu 0 --test_epoch 18` if you want to run on gpu 0.
 * You can see `output_root_2d.jpg` and new window that shows 3D pose.
 * **Note that the x- and y-axis of the output 3D root are in image space (pixel). You can do camera-backprojection to make them milimeter by supplying focal lengths and princpts at line 93~101. If you do not know the focal lengths and princpts, just use a normalized focal length (e.g, (1500,1500)) and center of the original image (before crop and resize).**
 
@@ -54,7 +54,7 @@ ${POSE_ROOT}
 |-- demo
 |-- common
 |-- main
-`-- output
+|-- output
 ```
 * `data` contains data loading codes and soft links to images and annotations directories.
 * `demo` contains demo codes.
@@ -121,7 +121,7 @@ ${POSE_ROOT}
 |-- |-- log
 |-- |-- model_dump
 |-- |-- result
-`-- |-- vis
+|-- |-- vis
 ```
 * Creating `output` folder as soft link form is recommended instead of folder form because it would take large storage capacity.
 * `log` folder contains training log file.
