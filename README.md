@@ -41,8 +41,7 @@ You can try quick demo at `demo` folder.
 * Download the pre-trained RootNet in [here](https://drive.google.com/drive/folders/1nQfOIgc7_AG5xPAO-vtG_L0WxdOelxet?usp=sharing).
 * Prepare `input.jpg` and pre-trained snapshot at `demo` folder.
 * Run `python demo.py --gpu 0 --test_epoch 18` if you want to run on gpu 0.
-* You can see `output_root_2d.jpg` and new window that shows 3D pose.
-* **Note that the x- and y-axis of the output 3D root are in image space (pixel). You can do camera-backprojection to make them milimeter by supplying focal lengths and princpts at line 93~101. If you do not know the focal lengths and princpts, just use a normalized focal length (e.g, (1500,1500)) and center of the original image (before crop and resize).**
+* You can see `output_root_2d.jpg` and printed root joint depths.
 
 ## Directory
 
