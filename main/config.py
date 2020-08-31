@@ -15,7 +15,7 @@ class Config:
 
     # testing set
     # Human36M, MuPoTS, MSCOCO, PW3D
-    testset = 'PW3D'
+    testset = 'Human36M'
 
     ## directory
     cur_dir = osp.dirname(os.path.abspath(__file__))
