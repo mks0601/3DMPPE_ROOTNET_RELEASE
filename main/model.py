@@ -58,11 +58,11 @@ class RootNet(nn.Module):
         hm_x = xy.sum(dim=(2))
         hm_y = xy.sum(dim=(3))
 
-        coord_x = hm_x * torch.cuda.comm.broadcast(torch.arange(1,cfg.output_shape[1]+1).type(torch.cuda.FloatTensor), devices=[hm_x.device.index])[0]
-        coord_y = hm_y * torch.cuda.comm.broadcast(torch.arange(1,cfg.output_shape[0]+1).type(torch.cuda.FloatTensor), devices=[hm_y.device.index])[0]
+        coord_x = hm_x * torch.arange(cfg.output_shape[1]).float().cuda()
+        coord_y = hm_y * torch.arange(cfg.output_shape[0]).float().cuda()
         
-        coord_x = coord_x.sum(dim=2) - 1
-        coord_y = coord_y.sum(dim=2) - 1
+        coord_x = coord_x.sum(dim=2)
+        coord_y = coord_y.sum(dim=2)
 
         # z
         img_feat = torch.mean(x.view(x.size(0), x.size(1), x.size(2)*x.size(3)), dim=2) # global average pooling
