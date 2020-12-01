@@ -39,6 +39,7 @@ Python 3.6.5 version with Anaconda 3 is used for development.
 You can try quick demo at `demo` folder. 
 * Download the pre-trained RootNet in [here](https://drive.google.com/drive/folders/1nQfOIgc7_AG5xPAO-vtG_L0WxdOelxet?usp=sharing).
 * Prepare `input.jpg` and pre-trained snapshot at `demo` folder.
+* Set `bbox_list` at [here](https://github.com/mks0601/3DMPPE_ROOTNET_RELEASE/blob/ca25760a2d60272a5952cd6612a69b65dc926be3/demo/demo.py#L62).
 * Run `python demo.py --gpu 0 --test_epoch 18` if you want to run on gpu 0.
 * You can see `output_root_2d.jpg` and printed root joint depths.
 
