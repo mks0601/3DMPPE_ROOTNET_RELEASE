@@ -31,7 +31,7 @@ Python 3.6.5 version with Anaconda 3 is used for development.
 
 ## Quick demo
 You can try quick demo at `demo` folder. 
-* Download the pre-trained RootNet in [here](https://drive.google.com/file/d/1ZHoXNFxBBsmis-5Xzu7dfXYGNxjpntgt/view?usp=sharing).
+* Download the pre-trained RootNet in [here](https://1drv.ms/u/s!All7gdNh7XE5nxTyrLCh-Gdv2aW3?e=V99Adk).
 * Prepare `input.jpg` and pre-trained snapshot at `demo` folder.
 * Set `bbox_list` at [here](https://github.com/mks0601/3DMPPE_ROOTNET_RELEASE/blob/ca25760a2d60272a5952cd6612a69b65dc926be3/demo/demo.py#L62).
 * Run `python demo.py --gpu 0 --test_epoch 18` if you want to run on gpu 0.
@@ -143,10 +143,10 @@ python test.py --gpu 0-1 --test_epoch 20
 to test the network on the GPU 0,1 with 20th epoch trained model. `--gpu 0,1` can be used instead of `--gpu 0-1`.
 
 ## Results
-* Pre-trained model of RootNet in [here](https://drive.google.com/drive/folders/1oGXqscxZpakld6j4Lj4hEDy8DCnh9cAs?usp=sharing).
-* Bounding boxs (from DetectNet and **not extended**) of Human3.6M and MuPoTS-3D datasets in [here](https://drive.google.com/drive/folders/1OyYYrCa8uWfaxTrBN6jKuaMe59XOgd61?usp=sharing). **You can use this to test RootNet.**
-* Bounding boxs (from DetectNet and **extended**) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://drive.google.com/drive/folders/1bmQWFiT0ZU4Q7dlsRaPGqaqoCAOeThGr?usp=sharing). **You should not use the bounding boxs of this file to test RootNet because the boxs are extended. Please use the right above one (bounding boxs from DetectNet without bbox extension)**.
-* Bounding boxs (GT) and root joint coordinates (from RootNet) of 3DPW dataset (only test set) in [here](https://drive.google.com/file/d/1oqSllmOlapJFW7LqUEEyheqgnjP11Ol9/view?usp=sharing). The result is obtained from RootNet trained on MuCo+MSCOCO (*without 3DPW training set*).
+* Pre-trained model of RootNet in [here](https://1drv.ms/f/s!All7gdNh7XE5nwvn5nHpT3-Pvahq?e=Vz8biI).
+* Bounding boxs (from DetectNet and **not extended**) of Human3.6M and MuPoTS-3D datasets in [here](https://1drv.ms/f/s!All7gdNh7XE5nnZSk2hD_bLocsqq?e=ewhkiN). **You can use this to test RootNet.**
+* Bounding boxs (from DetectNet and **extended**) and root joint coordinates (from RootNet) of Human3.6M, MSCOCO, and MuPoTS-3D datasets in [here](https://1drv.ms/f/s!All7gdNh7XE5nnCPZhAvILNurZD9?e=ey7hH8). **You should not use the bounding boxs of this file to test RootNet because the boxs are extended. Please use the right above one (bounding boxs from DetectNet without bbox extension)**.
+* Bounding boxs (GT) and root joint coordinates (from RootNet) of 3DPW dataset (only test set) in [here](https://1drv.ms/u/s!All7gdNh7XE5oCUWoJLA_D6z_TVS?e=zk7Gya). The result is obtained from RootNet trained on MuCo+MSCOCO (*without 3DPW training set*).
  
 For the evaluation, you can run `test.py` or there are evaluation codes in `Human36M` and `MuPoTS`.
 
